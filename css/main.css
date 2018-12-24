@@ -1,0 +1,852 @@
+/*
+* Copyright 2018 Carlos Eduardo Alfaro Orellana
+  https://www.youtube.com/c/CarlosAlfaro007
+*/
+
+/*=====================================================
+					Tipografia
+======================================================*/
+@font-face{
+    font-family: "RobotoCondensedLight";
+    src: url("../fonts/robotocondensed-light.ttf"), 
+    url("../fonts/robotocondensed-light.eot"), 
+    url("../fonts/robotocondensed-light.woff"), 
+    url("../fonts/robotocondensed-light.woff2"), 
+    url("../fonts/robotocondensed-light.svg");
+}
+@font-face{
+    font-family: "RobotoRegular";
+    src: url("../fonts/roboto-regular.ttf"), 
+    url("../fonts/roboto-regular.eot"), 
+    url("../fonts/roboto-regular.woff"), 
+    url("../fonts/roboto-regular.woff2"), 
+    url("../fonts/roboto-regular.svg");
+}
+@font-face{
+    font-family: "OswaldLight";
+    src: url("../fonts/oswald-light.ttf"), 
+    url("../fonts/oswald-light.eot"), 
+    url("../fonts/oswald-light.woff"), 
+    url("../fonts/oswald-light.woff2"), 
+    url("../fonts/oswald-light.svg");
+}
+/*=====================================================
+					Estilos generales
+======================================================*/
+:root{
+	--color-text: #3F51B5;
+	--primary-color: #2B2B2C;
+	--acent-color: #DB763B;
+}
+html, body{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "RobotoRegular";
+	position: relative;
+	background-color: #fff;
+}
+.text-condensedLight{ font-family: "RobotoCondensedLight"; }
+.text-center{ text-align: center; }
+.tittles{ font-family: "OswaldLight"; }
+.mdl-textfield{ width: 100%; }
+.full-width{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	box-sizing: border-box;
+}
+.list-unstyle{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+.img-responsive{
+	width: 100%;
+	height: auto;
+}
+.table-responsive{
+	overflow: auto;
+}
+.divider-menu-h{
+	height: 0;
+	border-top: 1px solid rgba(255, 255, 255, .09);
+	width: 85%;
+	margin: 0 auto;
+}
+.cover{
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.mdl-list__item-avatar{
+	line-height: 40px;
+	text-align: center;
+	font-size: 30px;
+}
+.table-responsive{
+	width: 100%;
+	overflow-x: scroll;
+	position: relative;
+}
+/*====== paneles*/
+.panel{ height: auto; }
+.panel-tittle{
+	height: 45px;
+	display: block;
+	line-height: 45px;
+	color: #fff;
+	font-size: 20px;
+}
+.panel-content{
+	display: block;
+	padding: 10px;
+}
+/*====== encabezados de paginas*/
+.header-well,
+.header-well-icon,
+.header-well-text{
+	min-height: 150px;
+	height: auto;
+}
+.header-well{
+	position: relative;
+}
+.header-well-icon,
+.header-well-text{
+	position: absolute;
+	top: 0;
+	color: #333;
+}
+.header-well-icon{
+	left: 0;
+	width: 25%;
+}
+.header-well-icon i,
+.header-well-text p{
+	position: absolute;
+	top: 50%;
+	display: block;
+	width: 100%;
+	transform: translateY(-50%);
+}
+.header-well-icon i{
+	text-align: center;
+	font-size: 60px;
+}
+.header-well-text{
+	right: 0;
+	width: 75%;
+}
+.header-well-text p{
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+}
+/*====== Area de notificacion*/
+.container-notifications{
+    position: fixed;
+	height: 100%;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	opacity: 0;
+    z-index: 997;
+}
+.container-notifications-bg{
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,.5);
+}
+.container-notifications-show{
+	pointer-events: auto;
+	opacity: 1;
+}
+.NotificationArea{
+	box-sizing: border-box;
+    background-color: #fff;
+    height: 100%;
+    width: 300px;
+    top: 0;
+    z-index: 999;
+    right: -300px;
+    transition: all .3s ease-in-out;
+    position: absolute;
+}
+.NotificationArea-title{
+	font-size: 21px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    background-color: var(--primary-color);
+    box-sizing: border-box;
+}
+.NotificationArea-title i{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 45px;
+    width: 45px;
+    line-height: 45px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.Notification,
+.Notification-icon,
+.Notification-text{
+    margin: 0;
+    padding: 0;
+    height: 80px;
+    box-sizing: border-box;
+}
+.Notification{
+    position: relative;
+    display: block;
+    width: 300px;
+    border-top: 1px solid #f3f3f3;
+    color: #2b2b2c;
+    font-size: 14px;
+    transition: all .3s ease-in-out;
+}
+.Notification:hover{
+	background-color: rgba(0,0,0,.07);
+}
+.Notification small{
+    color: #BDBDBD;
+}
+.Notification-icon,
+.Notification-text{
+    position: absolute;
+    top: 0;
+}
+.Notification-icon{
+    width: 80px;
+    left: 0;
+    box-sizing: border-box;
+}
+.Notification-icon i{
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    margin-left: 15px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    background-color: #D9534F;
+    border-radius: 50%;
+}
+.Notification-text{
+    width: 220px;
+    right: 0;
+}
+.Notification-text p{
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+}
+.NotificationArea-show{
+    right: 0;
+}
+/*====== Backgrouns color*/
+.bg-primary {
+    background-color: #2e6da4 !important;
+}
+.bg-success {
+    background-color: #3f903f !important;
+}
+.bg-danger {
+    background-color: #d9534f !important;
+}
+.bg-info {
+    background-color: #5bc0de !important;
+}
+/*=============Estilos login*/
+.login-wrap{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-text);
+	background-image: url(../assets/img/fontLogin.jpg);
+}
+.container-login{
+	width: 100%;
+	max-width: 300px;
+	box-sizing: border-box;
+	height: auto;
+	margin: 0;
+	padding: 20px;
+	background-color: rgba(255,255,255,.7);
+	border-radius: 5px;
+}
+/*=============Estilos barra superior*/
+.navBar{
+	background-color: var(--primary-color);
+	height: 45px;
+	color: #fff;
+}
+.navBar-options{
+	line-height: 45px;
+	height: 45px;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	right: 0;
+	padding: 0;
+	transition: all .3s ease-in-out;
+}
+.navBar-options-change{
+	width: 100%;
+}
+.navBar-options .btn-menu,
+.navBar-options-list{
+	line-height: 45px;
+	position: absolute;
+	top: 0;
+	height: 45px;
+	margin: 0;
+	padding: 0;
+}
+.navBar-options .btn-menu{
+	width: 40px;
+	left: 0;
+	font-size: 23px;
+	cursor: pointer;
+	user-select: none;
+	text-align: center;
+	outline: none;
+	margin-left: 9px;
+}
+.navBar-options-list{
+	right: 9px;
+}
+.navBar-options-list .noLink{
+	cursor: inherit !important;
+}
+.navBar-options-list ul{
+	height: 45px;
+}
+.navBar-options-list ul li{
+	height: 45px;
+	line-height: 45px;
+	cursor: pointer;
+	display: inline-block;
+	padding: 0 7px;
+	font-size: 21px;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+.navBar-options-list ul li{ outline: none; }
+.navBar-options-list ul li figure,
+.navBar-options-list ul li figure img{
+	margin: 0;
+	padding: 0;
+	padding-top: 0;
+	margin-top: 0;
+	box-sizing: border-box;
+}
+.navBar-options-list ul li figure{
+	height: 45px;
+}
+.navBar-options-list ul li figure img{
+	border: 1px solid #E1E1E1;
+	border-radius: 50%;
+	width: 39px;
+	height: 39px;
+	margin-bottom: 3px;
+}
+.navBar-options-list ul li i.zmdi-notifications-active{
+	color: #FF4081;
+}
+/*=============Estilos en comun navegacion lateral y contenido pagina*/
+.navLateral,
+.navLateral-body,
+.navLateral-bg{
+	position: absolute;
+	top: 0;
+	height: 100%;
+}
+/*=============Estilos navegacion lateral*/
+.navLateral{
+	left: 0;
+	width: 300px;
+	z-index: 100;
+	transition: all .3s ease-in-out;
+	background-image: url("../assets/img/FontNavLateral.jpg");
+	background-size: cover;
+	color: #fff;
+	overflow: hidden;
+}
+.navLateral-change{
+	pointer-events: none;
+	opacity: 0;
+	width: 0;
+}
+.navLateral-body{
+	z-index: 82;
+	left: 0;
+	padding-bottom: 30px;
+	background-color: rgba(43, 43, 44, .9);
+}
+.navLateral-body-logo{
+	height: 45px;
+	line-height: 45px;
+	color: #fff;
+	width: 100%;
+	font-size: 25px;
+	background-color: var(--acent-color);
+}
+.navLateral-body-logo .zmdi-close{
+	width: 0;
+	height: 0;
+	pointer-events: none;
+	opacity: 0;
+}
+.navLateral-body-cl,
+.navLateral-body-cr{
+	box-sizing: border-box;
+	height: 77px;
+	float: left;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+.navLateral-body-cl{
+	width: 30%;
+}
+.navLateral-body-cl img{
+	width: 57px;
+	height: 57px;
+	margin: 0 auto;
+	display: block;
+	margin-top: 10px;
+}
+.navLateral-body-cr{
+	width: 70%;
+	font-family: "RobotoCondensedLight";
+}
+.navLateral-body-cr span{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: block;
+	width: 100%;
+}
+.navLateral-body-tittle-menu{
+	text-align: center;
+	padding: 30px 0;
+}
+.navLateral-body-tittle-menu img{
+	max-width: 70px;
+}
+.menu-principal li,
+.menu-principal li a{
+	display: block;
+}
+.menu-principal li a{
+	height: 45px;
+	color: #fff;
+	position: relative;
+	transition: all .3s ease-in-out;
+}
+.menu-principal > li > a:hover{
+	background-color: var(--acent-color);
+}
+.menu-principal li a div.navLateral-body-cl,
+.menu-principal li a div.navLateral-body-cr{
+	height: 45px;
+	line-height: 45px;
+}
+.menu-principal li a div.navLateral-body-cl{
+	text-align: center;
+	font-size: 20px;
+}
+.btn-subMenu span{
+	position: absolute;
+	top: 0;
+	right: 7px;
+	line-height: 45px;
+	height: 45px;
+	font-size: 19px;
+}
+.sub-menu-options{
+	height: 0;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	background-color: rgba(255, 255, 255, .1);
+	transition: all .3s ease-in-out;
+}
+.sub-menu-options-show{
+	height: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+/*=============Estilos contenido pagina*/
+.pageContent{
+	padding-left: 300px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 77;
+	background-color: #fff;
+	transition: all .3s ease-in-out;
+}
+.pageContent-change{
+	padding-left: 0;
+}
+/*=====================================================
+					Estilos home
+======================================================*/
+/*=============Azulejos o accesos directos(Tiles)*/
+.tile{
+	border: 1px solid #E1E1E1;
+	height: 140px;
+	width: 30%;
+	margin: 0 1%;
+	position: relative;
+	transition: all .3s ease-in-out;
+	overflow: hidden;
+	cursor: pointer;
+	margin-bottom: 20px;
+	display: inline-block;
+}
+.tile:hover .tile-text span{ color: #3F51B5; }
+.tile:hover .tile-icon{
+	color: rgba(0,191,238,.3);
+	transform: scale(1.5) translate(-10px, -10px);
+}
+.tile-text{
+	display: block;
+	height: 140px;
+	width: 100%;
+	box-sizing: border-box;
+}
+.tile-text span,
+.tile-icon{
+	position: absolute;
+	color: rgba(0,0,0,.3);
+	transition: all .3s ease-in-out;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+.tile-text span{
+	top: 50%;
+	left: 10px;
+	transform: translateY(-50%);
+	display: block;
+	font-size: 27px;
+	z-index: 2;
+}
+.tile-icon{
+	bottom: 9px;
+	right: 4px;
+	font-size: 90px;
+	line-height: 67px;
+	z-index: 1;
+}
+/*=============Linea de tiempo (TimeLine)*/
+.timeline-c{
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.timeline-c::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#timeline-c{
+  position: relative;
+  padding: 2em 0;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+#timeline-c::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 100%;
+  width: 4px;
+  background-color: #3F51B5;
+}
+.timeline-c-box{
+  position: relative;
+  margin: 2em 0;
+}
+.timeline-c-box::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+.timeline-c-box:first-child {
+  margin-top: 0;
+}
+.timeline-c-box:last-child {
+  margin-bottom: 0;
+}
+.timeline-c-box-icon{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  background-color: #3F51B5;
+}
+.timeline-c-box-icon i{
+  display: block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+  position: relative;
+}
+.timeline-c-box-content{
+  position: relative;
+  margin-left: 60px;
+  border-radius: 0.25em;
+  padding: 1em;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #E1E1E1;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.timeline-c-box-content::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+.timeline-c-box-content::before{
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: 100%;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-right: 9px solid #E1E1E1;
+}
+.timeline-c-box-content .timeline-date{
+  display: inline-block;
+  color: rgb(119,119,119);
+}
+.timeline-c-box-content p{
+  margin: 1em 0;
+  line-height: 1.6;
+}
+.timeline-c-box-content .timeline-date{
+  float: left;
+  padding: .8em 0;
+}
+/*=====================================================
+					Estilos products
+======================================================*/
+.menu-categories ul li{
+	display: inline-block;
+	margin: 5px 7px;
+}
+.menu-categories ul li a{
+	text-decoration: none;
+	font-size: 19px;
+	font-family: "RobotoCondensedLight";
+}
+.product-card{
+	display: inline-block;
+	margin: 5px;
+	width: 300px;
+	text-align: left;
+}
+.product-card .mdl-card__actions button,
+.product-card .mdl-card__actions a{
+	float: right;
+}
+/*=====================================================
+					Media  Queries
+======================================================*/
+/*Phone*/
+@media (max-width: 479px){
+	.hide-on-phone{
+		width: 0;
+		height: 0;
+		pointer-events: none;
+		opacity: 0;
+	}
+	.visible-on-phone{
+		pointer-events: auto;
+		opacity: 1;
+	}
+	.visible-on-tablet,
+	.visible-on-desktop{
+		pointer-events: none;
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+	.header-well-icon,
+	.header-well-text{
+		position: relative;
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+	.tile{
+		width: 97%;
+	}
+	.product-card{
+		width: 100%;
+		margin: 0;
+	}
+}
+@media (max-width: 800px){
+	.navLateral{
+		width: 100%;
+		position: fixed;
+		pointer-events: none;
+		opacity: 0;
+		background-image: none;
+	}
+	.navLateral-bg{
+		left: 0;
+		background-color: rgba(0,0,0,.5);
+		z-index: 81;
+	}
+	.navLateral-body{
+		width: 300px;
+		background-color: #333;
+	}
+	.navLateral-body-logo .zmdi-close{
+		position: absolute;
+		top: 0;
+		left: 11px;
+		padding: 0 9px;
+		cursor: pointer;
+		height: 45px;
+		line-height: 45px;
+		pointer-events: auto;
+		opacity: 1;
+	}
+	.navLateral-change{
+		pointer-events: auto;
+		opacity: 1;
+	}
+	.pageContent{
+		width: 100%;
+		padding-left: 0;
+	}
+}
+/*Tablet*/
+@media (min-width: 480px) and (max-width: 839px) {
+	.hide-on-tablet{
+		width: 0;
+		height: 0;
+		pointer-events: none;
+		opacity: 0;
+	}
+	.visible-on-tablet{
+		pointer-events: auto;
+		opacity: 1;
+	}
+	.visible-on-desktop,
+	.visible-on-phone{
+		pointer-events: none;
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+	.tile{
+		width: 47%;
+	}
+}
+/*Desktop*/
+@media (min-width: 840px){
+	.hide-on-desktop{
+		width: 0;
+		height: 0;
+		pointer-events: none;
+		opacity: 0;
+	}
+	.visible-on-desktop{
+		pointer-events: auto;
+		opacity: 1;
+	}
+	.visible-on-tablet,
+	.visible-on-phone{
+		pointer-events: none;
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+	/*======= Estilos linea de tiempo (TimeLine) en desktop*/
+	#timeline-c{
+		margin-top: 3em;
+		margin-bottom: 3em;
+	}
+	#timeline-c::before{
+		left: 50%;
+		margin-left: -2px;
+	}
+	.timeline-c-box{
+		margin: 4em 0;
+	}
+	.timeline-c-box:first-child{
+		margin-top: 0;
+	}
+	.timeline-c-box:last-child{
+		margin-bottom: 0;
+	}
+	.timeline-c-box-icon{
+		left: 50%;
+		margin-left: -23px;
+		-webkit-transform: translateZ(0);
+		-webkit-backface-visibility: hidden;
+	}
+	.timeline-c-box-content{
+		margin-left: 0;
+		width: 45%;
+	}
+	.timeline-c-box-content::before{
+		top: 24px;
+		left: 100%;
+		border-color: transparent;
+		border-left-color: #E1E1E1;
+	}
+	.timeline-c-box-content .timeline-date{
+		position: absolute;
+		width: 100%;
+		left: 122%;
+		top: 6px;
+	}
+	.timeline-c-box:nth-child(even) .timeline-c-box-content{
+		float: right;
+	}
+	.timeline-c-box:nth-child(even) .timeline-c-box-content::before {
+		top: 24px;
+		left: auto;
+		right: 100%;
+		border-color: transparent;
+		border-right-color: #E1E1E1;
+	}
+	.timeline-c-box:nth-child(even) .timeline-c-box-content .timeline-date {
+		left: auto;
+		right: 122%;
+		text-align: right;
+	}
+}
